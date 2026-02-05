@@ -1,0 +1,337 @@
+/* === RESET / BASE === */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --bg: #f5f6f8;
+    --card: #ffffff;
+    --primary: #2c3e50;
+    --accent: #4a90e2;
+    --border: #dcdfe4;
+    --text: #2b2b2b;
+    --muted: #666;
+    --radius: 8px;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+}
+
+/* === LAYOUT === */
+main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1.5rem;
+}
+
+/* === HEADER === */
+header {
+    background: var(--card);
+    padding: 2rem;
+    border-radius: var(--radius);
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+header h1 {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    color: var(--primary);
+}
+
+header section {
+    margin-top: 0.5rem;
+    color: var(--muted);
+}
+
+/* === ARTICLE / FORM === */
+article section {
+    background: var(--card);
+    padding: 2rem;
+    border-radius: var(--radius);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+h2 {
+    margin-bottom: 1.5rem;
+    color: var(--primary);
+}
+
+h3 {
+    margin-bottom: 1rem;
+    color: var(--primary);
+}
+
+h4 {
+    margin-bottom: 0.75rem;
+}
+
+/* === FORM STRUCTURE === */
+form > div {
+    margin-bottom: 2rem;
+}
+
+form > div > div:first-child {
+    margin-bottom: 1rem;
+}
+
+/* === INPUT GROUPS === */
+form label {
+    display: block;
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem;
+}
+
+form input,
+form select {
+    width: 100%;
+    padding: 0.55rem 0.6rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    font-size: 0.95rem;
+}
+
+form input:focus,
+form select:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+/* === GRID FOR BASIC FIELDS === */
+form > div > div > div {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+}
+
+/* === BUTTONS === */
+button {
+    padding: 0.6rem 1.2rem;
+    border-radius: var(--radius);
+    border: none;
+    background: var(--accent);
+    color: white;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+button:hover {
+    background: #357abd;
+}
+
+button[type="button"] {
+    margin-top: 1rem;
+}
+
+/* MAIN ACTION */
+#generate-button {
+    width: 100%;
+    font-size: 1.1rem;
+    padding: 0.9rem;
+    margin-top: 1rem;
+}
+
+/* === DYNAMIC CONTAINERS === */
+#students-container,
+#assistants-container,
+#pieces-container {
+    display: grid;
+    gap: 1rem;
+}
+
+/* Placeholder for dynamically added blocks */
+#students-container > div,
+#assistants-container > div,
+#pieces-container > div {
+    padding: 1rem;
+    border: 1px dashed var(--border);
+    border-radius: var(--radius);
+    background: #fafafa;
+}
+
+/* === FOOTER === */
+footer {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 0.85rem;
+    color: var(--muted);
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+    main {
+        padding: 1rem;
+    }
+
+    header {
+        padding: 1.5rem;
+    }
+
+    article section {
+        padding: 1.5rem;
+    }
+
+    header h1 {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.6rem;
+    }
+
+    button {
+        width: 100%;
+    }
+}
+
+
+/* === MODAL === */
+.modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+}
+
+.modal-box {
+    position: relative;
+    max-width: 400px;
+    margin: 20vh auto;
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    animation: modalFade 0.2s ease-out;
+}
+
+.modal-box p {
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.75rem;
+}
+
+.modal-actions button {
+    padding: 0.5rem 1rem;
+}
+
+#confirm-ok {
+    background: #e74c3c;
+}
+
+#confirm-ok:hover {
+    background: #c0392b;
+}
+
+@keyframes modalFade {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* === DANGER BUTTON === */
+.btn-danger {
+    background: #e74c3c;
+}
+
+.btn-danger:hover {
+    background: #c0392b;
+}
+
+.btn-danger:active {
+    transform: scale(0.98);
+}
+
+/* === SUBMIT / PRIMARY BUTTON === */
+button[type="submit"],
+input[type="button"] {
+    background: linear-gradient(135deg, #4a90e2, #357abd);
+    color: white;
+    font-size: 1.05rem;
+    font-weight: 600;
+    padding: 0.9rem 1.4rem;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(74, 144, 226, 0.35);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+button[type="submit"]:hover,
+input[type="button"]:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 22px rgba(74, 144, 226, 0.45);
+}
+
+button[type="submit"]:active,
+input[type="button"]:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
+}
+
+button[type="submit"]:disabled,
+input[type="button"]:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+/* === PARTS ROW LAYOUT === */
+.part-row {
+    display: grid;
+    grid-template-columns: 1fr 2fr auto;
+    gap: 0.75rem;
+    align-items: end;
+    padding: 0.75rem;
+    border: 1px dashed var(--border);
+    border-radius: var(--radius);
+    background: #fafafa;
+}
+
+.part-row label {
+    font-size: 0.8rem;
+}
+
+.part-row input {
+    width: 100%;
+}
+
+/* Mobile fallback */
+@media (max-width: 600px) {
+    .part-row {
+        grid-template-columns: 1fr;
+    }
+
+    .part-row button {
+        margin-top: 0.5rem;
+        width: 100%;
+    }
+}

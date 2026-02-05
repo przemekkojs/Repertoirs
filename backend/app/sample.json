@@ -1,0 +1,59 @@
+{
+    "unit" : {
+        "university" : "Akademia Muzyczna im. Karola Lipińskiego we Wrocławiu",
+        "faculty": "Wydział Instrumentalny",
+        "department": "Katedra Klawesynu, Organów i Muzyki Dawnej",
+        "class_name": "Zespół Kameralny",
+        "course_name": "Instrument Główny"
+    },
+    "event_info" : {
+        "event_name" : "Egzamin",
+        "event_date" : "2024-06-15"
+    },
+    "students" : [
+        { "name" : "Jan Kowalski", "index" : "1234", "year" : "1", "instrument" : "Organy" },
+        { "name" : "Kamil Nowak", "index" : "5678", "year" : "2", "instrument" : "Flet" }
+    ],
+    "teachers" : {
+        "main" : { "name" : "Adam Małysz", "title" : "prof.", "add_title" : "prof. Uczelni" },
+        "assistants" : [
+            { "name" : "Kamil Stoch", "title" : "mgr", "add_title" : "" },
+            { "name" : "Piotr Żyła", "title" : "mgr", "add_title" : "" }
+        ]
+    },
+    "repertoire" : [
+        {
+            "title" : "Sonata C-dur",
+            "catalogNumber" : "op. 1 nr 1",
+            "composer" : {
+                "name" : "Klaudiusz Zielonogórski",
+                "birthYear" : "1000",
+                "deathYear" : "1100"
+            },
+            "parts" : [
+                {
+                    "number" : "I",
+                    "name" : "Allegro"
+                },
+                {
+                    "number" : "III",
+                    "name" : "Scherzo"
+                },
+                {
+                    "number" : "IV",
+                    "name" : "Presto"
+                }
+            ]
+        },
+        {
+            "title" : "Duet e-moll",
+            "catalogNumber" : "op. 76 nr 1234",
+            "composer" : {
+                "name" : "Jan Przyłożył",
+                "birthYear" : "1800",
+                "deathYear" : "1850"
+            },
+            "parts" : []
+        }
+    ]
+}

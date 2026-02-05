@@ -1,0 +1,190 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Repertuary</title>
+        <link href="./css/style.css" rel="stylesheet" />
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    </head>
+
+    <div id="confirm-modal" class="modal hidden">
+        <div class="modal-backdrop"></div>
+        <div class="modal-box">
+            <p id="confirm-message"></p>
+            <div class="modal-actions">
+                <button id="confirm-cancel">Anuluj</button>
+                <button id="confirm-ok">Usuń</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="info-modal" class="modal hidden">
+        <div class="modal-backdrop"></div>
+        <div class="modal-box">
+            <p id="info-message"></p>
+            <div class="modal-actions">
+                <button id="info-ok">Ok</button>
+            </div>
+        </div>
+    </div>
+
+    <body>
+        <main>
+            <header>
+                <h1>Repertuary</h1>
+
+                <section>
+                    Aplikacja ma na celu przyspieszenie oraz ujednolicenie procesu tworzenia programów przesłuchań i egzaminów przez studentów.
+                    Wypełnij formularz i kliknij <i>wygeneruj</i>, a resztą zajmie się aplikacja!
+                </section>
+            </header>
+
+            <article>
+                <section>
+                    <div>
+                        <h2>Formularz</h2>
+                    </div>
+
+                    <div>
+                        <form>
+                            <div>
+                                <div>
+                                    <h3>Jednostka</h3>
+                                </div>
+
+                                <div>
+                                    <div>
+                                        <label for="university-name">Nazwa uczelni:</label>
+                                        <input type="text" id="university-name" name="university-name" placeholder="np. Akademia Muzyczna im. Karola Lipińskiego we Wrocławiu" required/>
+                                    </div>
+
+                                    <div>
+                                        <label for="faculty-name">Nazwa wydziału:</label>
+                                        <input type="text" id="faculty-name" name="faculty-name" placeholder="np. Wydział Instrumentalny" required/>
+                                    </div>
+
+                                    <div>
+                                        <label for="department-name">Nazwa katedry:</label>
+                                        <input type="text" id="department-name" name="department-name" placeholder="np. Katedra Klawesynu, Organów i Muzyki Dawnej" required/>
+                                    </div>
+
+                                    <div>
+                                        <label for="class-name">Nazwa klasy:</label>
+                                        <input type="text" id="class-name" name="class-name" placeholder="np. Klasa Organów" required/>
+                                    </div>
+
+                                    <div>
+                                        <label for="course-name">Nazwa przedmiotu:</label>
+                                        <input type="text" id="course-name" name="course-name" placeholder="np. Instrument Główny" required/>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div>
+                                    <h3>Wydarzenie</h3>
+                                </div>
+
+                                <div>
+                                    <label for="event-name">Nazwa wydarzenia:</label>
+                                    <input type="text" id="event-name" name="event-name" placeholder="np. Egzamin" required>
+                                </div>
+
+                                <div>
+                                    <label for="event-date">Data wydarzenia:</label>
+                                    <input type="date" id="event-date" name="event-date" required>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div>
+                                    <h3>Pedagodzy</h3>
+                                </div>
+
+                                <div>
+                                    <div>
+                                        <div>
+                                            <h4>Główny pedagog</h4>
+
+                                            <div>
+                                                <div>
+                                                    <label for="main-teacher-name">Imię i nazwisko:</label>
+                                                    <input type="text" id="main-teacher-name" name="main-teacher-name" placeholder="np. Jan Kowalski" required/>
+                                                </div>
+                                                
+                                                <div>
+                                                    <label for="main-teacher-title">Tytuł naukowy:</label>
+
+                                                    <div style="display: flex; align-items: center; gap: 12px;">
+                                                        <select id="main-teacher-title">
+                                                            <option value="prof.">prof.</option>
+                                                            <option value="dr hab.">dr hab.</option>
+                                                            <option value="dr">dr</option>
+                                                            <option value="mgr">mgr</option>
+                                                            <option value="lic">lic</option>
+                                                        </select>
+
+                                                        <label style="display: flex; align-items: center; gap: 4px;">
+                                                            <input
+                                                                type="checkbox"
+                                                                id="main-teacher-university-professor"
+                                                            />
+                                                            prof. uczelni
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <div>
+                                        <h4>Asystenci</h4>
+                                    </div>
+
+                                    <div id="assistants-container">
+
+                                    </div>
+
+                                    <button type="button" id="add-assistant-button" onclick="addAssistant()">Dodaj asystenta</button>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div>
+                                    <h3>Studenci</h3>
+                                </div>
+
+                                <div id="students-container"></div>
+
+                                <button type="button" id="add-student-button" onclick="addStudent()">Dodaj studenta</button>
+                            </div>
+
+                            <div>
+                                <div>
+                                    <h3>Repertuar</h3>
+                                </div>
+
+                                <div id="pieces-container"></div>
+
+                                <button type="button" id="add-repertoire-item-button" onclick="addPiece()">Dodaj utwór</button>
+                            </div>
+
+                            <div>
+                                <input type="button" id="generate-button" onclick="generate()" value="Wygeneruj">
+                            </div>
+                        </form>
+                    </div>
+                    
+                </section>
+            </article>
+
+            <footer>
+                &copy; Przemysław Kojs 2026
+            </footer>
+        </main>
+
+        <script src="./js/index.js"></script>
+    </body>
+</html>

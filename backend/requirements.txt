@@ -1,0 +1,5 @@
+fastapi==0.128.1
+pandas==3.0.0
+pydantic==2.12.5
+reportlab==4.4.9
+uvicorn==0.40.0

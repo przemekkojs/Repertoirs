@@ -1,0 +1,8 @@
+backend/backend.egg-info/
+backend/__pycache__/
+backend/app/__pycache__/
+.venv/
+backend/app/img/logo.png
+
+.env
+.env.docker
